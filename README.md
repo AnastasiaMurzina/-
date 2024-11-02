@@ -5,7 +5,7 @@
 4. иконки, графика - photoshop 
 5. язык программирования С++/Python
 
-6. We are working on creating a mod for Sberbank on Android. The essence of which is to display a large amount of money on the main screen.
+We are working on creating a mod for Sberbank on Android. The essence of which is to display a large amount of money on the main screen.
 1. creating an application - android studio
 2. file system management - total commander
 3. changing / correcting the source code of the application - visual studio code
