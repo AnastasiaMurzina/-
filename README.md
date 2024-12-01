@@ -5,7 +5,7 @@
 3. Piskel — редактор для анимированных спрайтов и пиксельной графики.
 4. Язык программирования - C#
 
-We are working on creating a game "Shadow boxing" . The essence of which is that the main character needs to defeat an opponent who is his exact copy twice in a row (to prove that the victory was not accidental).
+We are working on creating a game "Shadow struggle" . The essence of which is that the main character needs to defeat an opponent who is his exact copy twice in a row (to prove that the victory was not accidental).
 Background: the main character was a mercenary who received a serious injury due to which he completely lost his memory. In order to return to work, he will have to train with his training robot.
 1. Unity - game engine.
 2. Visual Studio - development environment.
