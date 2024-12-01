@@ -1,0 +1,98 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerAttack : MonoBehaviour
+{
+    public GameObject GG;
+    public GameObject AttackEffect1;
+    public GameObject AttackParticle;
+    public GameObject AttackEffectPrefab1;
+    public GameObject AttackEffect2;
+    public GameObject AttackEffectPrefab2;
+    public GameObject AnotherOne;
+    public GameObject ShiftPrefab;
+    public GameObject PushPrefab;
+    public GameObject Inst;
+    public GameObject ColorEr;
+
+    public Vector3 OldPosition;
+    public Quaternion OldRotation;
+
+    public bool Attacking1;
+    public bool Attacking2;
+
+    public float Queue = 1;
+
+    public float TeleportTime;
+
+    public Animator AnimEf1;
+    public Animator AnimEf2;
+    public Animator AnimEf3;
+    public Animator AnimShiftEf;
+
+    public Beautiful bet;
+    public PlayerMove Moving;
+    public Player GGs;
+    public AttackCheckPl Instated;
+    public ColorControl cl;
+
+    public UnityEngine.Experimental.Rendering.Universal.Light2D TeleportLight;
+
+    void Start()
+    {
+        cl = ColorEr.GetComponent<ColorControl>();
+        bet = GG.GetComponent<Beautiful>();
+        GGs = GG.GetComponent<Player>();
+        Moving = GG.GetComponent<PlayerMove>();
+    }
+
+    public void Update()
+    {
+if (TeleportLight.intensity < 0)
+        {
+            TeleportLight.intensity += 4 * Time.deltaTime;
+        }
+    }
+
+    public void ShiftAttack()
+    {
+        AttackEffect1.SetActive(false);
+        ShiftPrefab.SetActive(false);
+        Inst = Instantiate(ShiftPrefab, AttackEffect1.transform.position, AttackEffect1.transform.rotation);
+        Inst.SetActive(true);
+        Instated = Inst.GetComponent<AttackCheckPl>();
+        Instated.Splash = true;
+    }
+
+    public void Teleport()
+    {
+        GG.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 pos = GG.transform.position;
+        pos.z = 0;
+        GG.transform.position = pos;
+        cl.RedOut();
+    }
+
+    public void AttackStart1()
+    {
+    OldPosition = AttackEffect1.transform.position;
+    OldRotation = AttackEffect1.transform.rotation;
+    AttackEffect1.SetActive(false);
+    Attacking1 = false;
+    }
+
+    public void AttackStart2()
+    {
+        OldPosition = AttackEffect2.transform.position;
+        OldRotation = AttackEffect2.transform.rotation;
+        AnotherOne = Instantiate(AttackEffectPrefab2, OldPosition, OldRotation);
+        AttackEffect2.SetActive(false);
+        Attacking2 = false;
+    }
+
+    public void Detonation()
+    {
+        Destroy(AnotherOne);
+    }
+}
